@@ -1,3 +1,9 @@
+/**
+ * jQuery CharCounter
+ * @link https://github.com/nuxia/charcounter
+ * @version 1.1.1
+ * @license MIT
+ */
 (function (factory) {
 	if (typeof define === 'function' && define.amd) {
 		// AMD. Register as an anonymous module.
@@ -51,7 +57,11 @@
 
                 if (options.truncateAfterMax) {
                     $element.val(value.substring(0, options.max));
+                    if (count > options.max) {
+                        count = options.max;
+                    }
                 }
+
                 $container.html($.fn.CharCounter.methods[options.method]($.fn.CharCounter.locales[options.locale], count, options.max, warning));
             };
 

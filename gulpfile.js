@@ -19,7 +19,9 @@ gulp.task('dist', function () {
         .pipe(rename({
             extname: '.min.js'
         }))
-        .pipe(uglify())
+        .pipe(uglify({
+            preserveComments: 'some'
+        }))
         .pipe(gulp.dest('dist'));
 
     gulp.src(globs.css)
